@@ -1,1 +1,308 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Киев & Кафе — Уютная кофейня в сердце столицы</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        body {
+            background-color: #ffffff;
+            color: #2c2c2c;
+            line-height: 1.6;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            border-bottom: 1px solid #eaeaea;
+            background: #ffffff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #3b2314;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #666;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        nav a:hover {
+            color: #3b2314;
+        }
+        .order-btn {
+            background: #3b2314;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+        .order-btn:hover {
+            background: #54331f;
+        }
+        
+        /* Главный экран */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 80px 50px;
+            background: #fcfbfa;
+        }
+        .hero-content {
+            max-width: 600px;
+        }
+        .hero-content h1 {
+            font-size: 46px;
+            margin-bottom: 20px;
+            color: #2c2c2c;
+            line-height: 1.2;
+        }
+        .hero-content p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .hero-image {
+            width: 450px;
+            height: 320px;
+            background: #f0ebe6;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8c7365;
+            font-weight: 500;
+        }
+        
+        /* Меню */
+        .menu-section {
+            padding: 80px 50px;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 50px;
+            color: #2c2c2c;
+        }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .menu-card {
+            border: 1px solid #eaeaea;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #fff;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .menu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.04);
+        }
+        .menu-img {
+            height: 200px;
+            background: #f7f5f2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8c7365;
+        }
+        .menu-info {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .menu-info h3 {
+            font-size: 18px;
+            color: #2c2c2c;
+        }
+        .menu-price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #3b2314;
+        }
 
+        /* Атмосфера */
+        .about {
+            background: #fcfbfa;
+            padding: 80px 50px;
+            text-align: center;
+        }
+        .about max-width {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .about h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        .about p {
+            color: #666;
+            font-size: 17px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Бронирование / Контакты */
+        .booking {
+            padding: 80px 50px;
+            display: flex;
+            justify-content: center;
+        }
+        .booking-box {
+            background: #fff;
+            border: 1px solid #eaeaea;
+            padding: 40px;
+            border-radius: 12px;
+            max-width: 550px;
+            width: 100%;
+            text-align: center;
+        }
+        .booking-box h3 {
+            font-size: 26px;
+            margin-bottom: 10px;
+        }
+        .booking-box p {
+            color: #666;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 15px;
+            outline: none;
+        }
+        .form-group input:focus {
+            border-color: #3b2314;
+        }
+        .submit-btn {
+            width: 100%;
+            background: #3b2314;
+            color: #fff;
+            padding: 14px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .submit-btn:hover {
+            background: #54331f;
+        }
+
+        /* Футер */
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid #eaeaea;
+            color: #777;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">☕ Киев & Кафе</div>
+        <nav>
+            <a href="#menu">Меню</a>
+            <a href="#about">О нас</a>
+            <a href="#booking">Контакты</a>
+        </nav>
+        <a href="#booking" class="order-btn">Забронировать столик</a>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Уютное место для ваших теплых встреч в Киеве</h1>
+            <p>Свежая выпечка, ароматный зерновой кофе и атмосфера спокойствия в самом центре города.</p>
+            <a href="#menu" class="order-btn" style="padding: 14px 30px; font-size: 16px;">Посмотреть меню</a>
+        </div>
+        <div class="hero-image">
+            [ Атмосферное фото кафе ]
+        </div>
+    </section>
+
+    <section class="menu-section" id="menu">
+        <h2 class="section-title">Популярное в меню</h2>
+        <div class="menu-grid">
+            <div class="menu-card">
+                <div class="menu-img">[ Капучино ]</div>
+                <div class="menu-info">
+                    <h3>Фирменный Капучино</h3>
+                    <div class="menu-price">95 грн</div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div class="menu-img">[ Круассан ]</div>
+                <div class="menu-info">
+                    <h3>Миндальный круассан</h3>
+                    <div class="menu-price">120 грн</div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div class="menu-img">[ Матча Латте ]</div>
+                <div class="menu-info">
+                    <h3>Органическая Матча</h3>
+                    <div class="menu-price">110 грн</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <h2>Наша атмосфера</h2>
+        <p>Мы создали пространство, куда приятно прийти с ноутбуком поработать, встретиться с друзьями за чашкой фильтр-кофе или провести тихий вечер с любимой книгой. Ждем вас каждый день с 08:00 до 21:00.</p>
+    </section>
+
+    <section class="booking" id="booking">
+        <div class="booking-box">
+            <h3>Забронировать столик</h3>
+            <p>Заполните форму, и мы подтвердим бронь по телефону.</p>
+            <form onsubmit="event.preventDefault(); alert('Спасибо! Ваша бронь принята. Мы свяжемся с вами.');">
+                <div class="form-group">
+                    <input type="text" placeholder="Ваше имя" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" placeholder="Номер телефона" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Количество гостей и время" required>
+                </div>
+                <button type="submit" class="submit-btn">Забронировать</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Киев & Кафе. Ул. Крещатик, Киев. Все права защищены.</p>
+    </footer>
+
+</body>
+</html>
